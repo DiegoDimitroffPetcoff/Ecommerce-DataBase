@@ -2,19 +2,22 @@ const express = require("express");
 const { Router } = express;
 const productosRouter = Router();
 
-// const { ProductoDaoFile } = require("../DAOS/productos/productosDaoArchivos");
-// const producto = new ProductoDaoFile();
+// BASE DE DATOS EN ARCHIVO
+const { ProductoDaoFile } = require("../DAOS/productos/productosDaoArchivos");
+const producto = new ProductoDaoFile();
 
+// BASE DE DATOS EN MONGO
 // const { ProductosDaoMongo } = require("../DAOS/productos/productosDaoMongo");
 // const productos = require("../models/productosSchema");
 // const producto = new ProductosDaoMongo();
 
-const {
-  ProductoDaoFireBase,
-} = require("../DAOS/productos/productosDaoFireBase");
-const producto = new ProductoDaoFireBase();
+// BASE DE DATOS EN FIREBASE
+// const {
+//   ProductoDaoFireBase,
+// } = require("../DAOS/productos/productosDaoFireBase");
+// const producto = new ProductoDaoFireBase();
 
-// ---------------------------------------------------------------------------------//
+// --------------------------------------------------------------------------------//
 // AGREGAR PRODUCTO
 productosRouter.post("/", async (req, res) => {
   let body = await req.body;
@@ -54,21 +57,21 @@ productosRouter.put("/:num", async (req, resp) => {
       price: req.body.price,
       descripcion: req.body.descripcion,
       foto: req.body.foto,
-      stock: req.body.stock
+      stock: req.body.stock,
     };
-    
+
+    let elementoUpdate = await producto.edit(content, req.params.num);
+
+    resp.json({
+      ProductoEditado: elementoUpdate,});
   } else {
     resp.json({
       Error: `Falto completar alguno de los campos requeridos`,
     });
   }
-  await producto.edit(content, req.params.num);
 
-
-  resp.json({
-    ProductoEditado: content,
   });
-});
+
 
 // PARA ACTUALIZAR CON MONGO
 // productosRouter.put("/:num", async (req, resp) => {

@@ -54,16 +54,12 @@ class ContainerFireBase {
     return item;
   }
 
-  async saveCarrito(user) {
-    if (user) {
-      this.addProduct(user, this.id);
-      // this.save(user, this.id)
-      // console.log(this.id)
-      this.id++;
-
-      return user;
-    } else {
-      return "Not saved";
+  async saveCarrito(document) {
+    try {
+      this.addProduct(document);
+    } catch (error) {
+      console.log(`No se pudo guardar: ${error}`);
+      return `No se pudo guardar: ${error}`;
     }
   }
 
@@ -81,6 +77,16 @@ class ContainerFireBase {
     content.Update = date;
     let item = await doc.update(content);
     return item;
+  }
+
+  async update(products, id) {
+    let pro = products;
+    console.log(pro.title);
+    const res = await this.collection
+      .doc(`${id}`)
+      .set(products, { merge: false });
+// solo se pudo lograr que se agregue un producto a cada carrito, si se agrega uno diferente este es reemplazado pero no agregado
+    return `Acaba de agregar el producto ID: ${products} en el carrito ID num: ${id}`;
   }
 }
 
