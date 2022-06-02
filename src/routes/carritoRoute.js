@@ -6,6 +6,8 @@ const carritosRouter = Router();
 //BASE DE DATOS EN ARCHIVO
 const { CarritoDaoFile } = require("../DAOS/carrito/carritoDaoArchivos");
 const carrito = new CarritoDaoFile();
+const {  ProductoDaoFile} = require("../DAOS/productos/productosDaoArchivos");
+const producto = new  ProductoDaoFile();
 
 //BASE DE DATOS EN MONGO
 // const { CarritosDaoMongo } = require("../DAOS/carrito/carritoDaoMongo");
@@ -29,17 +31,17 @@ carritosRouter.post("/", async (req, res) => {
 
 // AGREGAR UN PRODUCTO A UN CARRITO
 carritosRouter.post("/:num", async (req, res) => {
+  
   let carritoByID = await carrito.getById(req.params.num);
   let productoByID = await producto.getById(req.body.id);
-
   let productoA = productoByID.data;
-
-  resultado = await carrito.update(productoA, carritoByID);
+  let resultado = await carrito.update(carritoByID , productoByID);
+  res.json({ ProductoAgregado: resultado });
 });
 
 // OBTENER TODOS LOS CARRITOS
 carritosRouter.get("/", async (req, res) => {
-  res.json({ TodosLosCarritos: await carrito.getAll() });
+  res.json({ TodosLosCarritos: await carrito.getContentFile() });
 });
 
 // OBTENER LOS CARRITOS POR ID

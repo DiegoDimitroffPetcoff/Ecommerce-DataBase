@@ -27,7 +27,7 @@ productosRouter.post("/", async (req, res) => {
 
 // OBTENER TODOS LOS PRODUCTOS
 productosRouter.get("/", async (req, res) => {
-  let getProductos = await producto.getAll();
+  let getProductos = await producto.getContentFile();
   res.json({ TodosLosProductos: getProductos });
 });
 // OBTENER PRODUCTO POR ID
@@ -42,7 +42,7 @@ productosRouter.delete("/:num", async (req, res) => {
   res.json({ ProductoEliminado: resultado });
 });
 
-// PARA ACTUALIZAR CON FIREBASE
+// EDITAR PRODUCTO
 productosRouter.put("/:num", async (req, resp) => {
   let content = null;
   if (

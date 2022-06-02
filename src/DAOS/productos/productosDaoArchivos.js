@@ -7,7 +7,7 @@ const { title } = require("process");
 class ProductoDaoFile extends ContenedorArchivo {
   constructor() {
     super("./src/data/productosStorage.txt");
-    let films = this.getAll();
+    let films = this.getContentFile;
     this.id = films.length > 0 ? films[films.length - 1].id + 1 : 1;
   }
 
@@ -27,23 +27,6 @@ class ProductoDaoFile extends ContenedorArchivo {
     return product;
   }
 
-  getAll() {
-    let content = this.getContentFile();
-
-    return content;
-  }
-  deleteById(x) {
-    let y = x;
-    let array = this.getContentFile();
-    array.forEach((element) => {
-      if (element.id == y) {
-        let id = element.id - 1;
-        let removed = array.splice(id, 1);
-        this.saveInFile(array);
-      }
-    });
-    return "You just deleted product with Id Number: " + x;
-  }
   edit(content, id) {
     let elementoUpdate = null;
 

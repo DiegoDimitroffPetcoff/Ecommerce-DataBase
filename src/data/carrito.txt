@@ -1,73 +1,32 @@
 [
 	{
 		"id": 1,
-		"Timestamp": "Wed May 04 2022 18:38:20 GMT-0300 (hora estándar de Argentina)1651700300768",
-		"products": [
-			{
-				"title": "CARTERA",
-				"price": "100.900.200",
-				"descripcion": "Personal",
-				"foto": "URL",
-				"stock": "90",
-				"id": "1"
-			},
-			{
-				"title": "mochilas",
-				"price": "232",
-				"descripcion": "Elementos escolares",
-				"foto": "URL",
-				"stock": "2000",
-				"id": 2,
-				"Timestamp": "Tue May 03 2022 08:06:09 GMT-0300 (hora estándar de Argentina)1651575969675"
-			}
-		]
-	},
-	{
-		"id": 2,
-		"Timestamp": "Wed May 04 2022 18:38:20 GMT-0300 (hora estándar de Argentina)1651700300768",
-		"products": [
-			{
-				"title": "mochilas",
-				"price": "232",
-				"descripcion": "Elementos escolares",
-				"foto": "URL",
-				"stock": "2000",
-				"id": 1,
-				"Timestamp": "Tue May 03 2022 08:06:09 GMT-0300 (hora estándar de Argentina)1651575969675"
-			},
-			{
-				"title": "Termolar",
-				"price": "232",
-				"descripcion": "Elementos escolares",
-				"foto": "URL",
-				"stock": "2000",
-				"id": 2,
-				"Timestamp": "Tue May 03 2022 08:06:09 GMT-0300 (hora estándar de Argentina)1651575969675"
-			}
-		]
+		"date": "02-06-2022 12:19:03",
+		"products": []
 	},
 	{
 		"id": 3,
-		"Timestamp": "Wed May 04 2022 18:38:20 GMT-0300 (hora estándar de Argentina)1651700300768",
-		"products": [
-			{
-				"title": "Lamparas",
-				"price": "232",
-				"descripcion": "Elementos escolares",
-				"foto": "URL",
-				"stock": "2000",
-				"id": 1,
-				"Timestamp": "Tue May 03 2022 08:06:09 GMT-0300 (hora estándar de Argentina)1651575969675"
-			},
-			{
-				"title": "Fibrones",
-				"price": "232",
-				"descripcion": "Elementos escolares",
-				"foto": "URL",
-				"stock": "2000",
-				"id": 2,
-				"Timestamp": "Tue May 03 2022 08:06:09 GMT-0300 (hora estándar de Argentina)1651575969675"
-			}
-		]
+		"date": "02-06-2022 12:19:04",
+		"products": []
+	},
+	{
+		"id": 4,
+		"date": "02-06-2022 12:19:05",
+		"products": []
+	},
+	{
+		"id": 6,
+		"date": "02-06-2022 12:20:24",
+		"products": []
+	},
+	{
+		"id": 7,
+		"date": "02-06-2022 12:20:31",
+		"products": []
+	},
+	{
+		"id": 8,
+		"date": "02-06-2022 12:20:45",
+		"products": []
 	}
 ]
