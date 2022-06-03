@@ -9,7 +9,8 @@ const ProductosSchema = new mongoose.Schema({
     foto: {type:String,require:true,max:100}, 
     stock: {type:Number,require:true,max:100},
     id: {type:Number,require:true},
-    
+    date:{type:String,require:false},
+    update:{type:String,require:false},
 })
 
 const productos = mongoose.model(productosCollection, ProductosSchema);

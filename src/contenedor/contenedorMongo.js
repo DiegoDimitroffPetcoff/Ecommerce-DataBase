@@ -16,20 +16,19 @@ class ContenedorMongo {
     this.model = model;
   }
 
-  async getAll() {
+  async getContentFile() {
     return await this.model.find();
   }
   async getById(id) {
-    let element = null;
-    let contentArray = await this.model.find();
-    let content = null;
-    if (contentArray.length > 0) {
-      element = contentArray.find((elem) => elem.id == id);
-    }
-    if (element) {
-      content = element;
-    }
-    return element;
+    let product = "Producto no encontrado";
+    let contentArray = await this.model.find({}, { id: 1, _id: 0, title: 1,price:1,descripcion:1, foto: 1,stock:1,date:1,update:1});
+    // console.log(contentArray);
+    contentArray.forEach((element) => {
+      if (element.id == id) {
+        product = element;
+      }
+    });
+    return product
   }
 
   async deleteById(id) {
@@ -45,7 +44,12 @@ class ContenedorMongo {
         }
       });
     }
-    return productoEliminado;
+    if (productoEliminado != null) {
+      return productoEliminado;
+    } else {
+      return `El producto que quiere eliminar no existe`
+    }
+
   }
 }
 

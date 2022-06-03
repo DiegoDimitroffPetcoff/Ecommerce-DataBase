@@ -4,15 +4,15 @@ const carritosRouter = Router();
 
 
 //BASE DE DATOS EN ARCHIVO
-const { CarritoDaoFile } = require("../DAOS/carrito/carritoDaoArchivos");
-const carrito = new CarritoDaoFile();
-const {  ProductoDaoFile} = require("../DAOS/productos/productosDaoArchivos");
-const producto = new  ProductoDaoFile();
+// const { CarritoDaoFile } = require("../DAOS/carrito/carritoDaoArchivos");
+// const carrito = new CarritoDaoFile();
+// const {  ProductoDaoFile} = require("../DAOS/productos/productosDaoArchivos");
+// const producto = new  ProductoDaoFile();
 
 //BASE DE DATOS EN MONGO
-// const { CarritosDaoMongo } = require("../DAOS/carrito/carritoDaoMongo");
-// const carritos = require("../models/carritosSchema");
-// const carrito = new CarritosDaoMongo();
+const { CarritosDaoMongo } = require("../DAOS/carrito/carritoDaoMongo");
+const carritos = require("../models/carritosSchema");
+const carrito = new CarritosDaoMongo();
 
 //BASE DE DATOS EN FIRESTORE
 // const { CarritoDaoFireBase } = require("../DAOS/carrito/carritoDaoFireBase");

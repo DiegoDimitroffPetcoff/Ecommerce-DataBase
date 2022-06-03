@@ -3,13 +3,13 @@ const { Router } = express;
 const productosRouter = Router();
 
 // BASE DE DATOS EN ARCHIVO
-const { ProductoDaoFile } = require("../DAOS/productos/productosDaoArchivos");
-const producto = new ProductoDaoFile();
+// const { ProductoDaoFile } = require("../DAOS/productos/productosDaoArchivos");
+// const producto = new ProductoDaoFile();
 
 // BASE DE DATOS EN MONGO
-// const { ProductosDaoMongo } = require("../DAOS/productos/productosDaoMongo");
-// const productos = require("../models/productosSchema");
-// const producto = new ProductosDaoMongo();
+const { ProductosDaoMongo } = require("../DAOS/productos/productosDaoMongo");
+const productos = require("../models/productosSchema");
+const producto = new ProductosDaoMongo();
 
 // BASE DE DATOS EN FIREBASE
 // const {
@@ -32,13 +32,14 @@ productosRouter.get("/", async (req, res) => {
 });
 // OBTENER PRODUCTO POR ID
 productosRouter.get("/:num", async (req, res) => {
-  let resultado = await producto.getById(req.params.num);
+  let resultado = await producto.getById(req.params.num); 
   res.json({ Producto: resultado });
 });
 
 // ELIMINAR PRODUCTO POR ID
 productosRouter.delete("/:num", async (req, res) => {
   let resultado = await producto.deleteById(req.params.num);
+  
   res.json({ ProductoEliminado: resultado });
 });
 
@@ -73,22 +74,5 @@ productosRouter.put("/:num", async (req, resp) => {
   });
 
 
-// PARA ACTUALIZAR CON MONGO
-// productosRouter.put("/:num", async (req, resp) => {
-//   let resultado = await producto.edit(
-//     req.params.num,
-//     req.body.title,
-//     req.body.price,
-//     req.body.descripcion,
-//     req.body.foto,
-//     req.body.stock
-//   );
-
-//   await producto.edit(resultado)
-
-//   resp.json({
-//     ProductoEditado: resultado,
-//   });
-// });
 
 module.exports = productosRouter;

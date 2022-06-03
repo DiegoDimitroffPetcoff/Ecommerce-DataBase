@@ -48,7 +48,7 @@ class ProductoDaoFile extends ContenedorArchivo {
     this.saveInFile(allProducts);
 
     return elementoUpdate;
-    ("");
+  
   }
 }
 
