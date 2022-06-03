@@ -36,7 +36,7 @@ class ContenedorMongo {
         foto:1,
         
         update:1,
-      }s
+      }
     ).sort({id:1});
   }
   async getById(id) {
