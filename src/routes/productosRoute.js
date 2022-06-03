@@ -18,32 +18,32 @@ const producto = new ProductosDaoMongo();
 // const producto = new ProductoDaoFireBase();
 
 // --------------------------------------------------------------------------------//
-// AGREGAR PRODUCTO
+// A- AGREGAR PRODUCTO
 productosRouter.post("/", async (req, res) => {
   let body = await req.body;
   let create = await producto.addProduct(body);
   res.json({ ProductoAgregado: create });
 });
 
-// OBTENER TODOS LOS PRODUCTOS
+// B- OBTENER TODOS LOS PRODUCTOS
 productosRouter.get("/", async (req, res) => {
   let getProductos = await producto.getContentFile();
   res.json({ TodosLosProductos: getProductos });
 });
-// OBTENER PRODUCTO POR ID
+// C- OBTENER PRODUCTO POR ID
 productosRouter.get("/:num", async (req, res) => {
   let resultado = await producto.getById(req.params.num); 
   res.json({ Producto: resultado });
 });
 
-// ELIMINAR PRODUCTO POR ID
+// E- ELIMINAR PRODUCTO POR ID
 productosRouter.delete("/:num", async (req, res) => {
   let resultado = await producto.deleteById(req.params.num);
   
   res.json({ ProductoEliminado: resultado });
 });
 
-// EDITAR PRODUCTO
+// F- EDITAR PRODUCTO
 productosRouter.put("/:num", async (req, resp) => {
   let content = null;
   if (

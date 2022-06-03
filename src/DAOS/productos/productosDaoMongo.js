@@ -48,6 +48,7 @@ class ProductosDaoMongo extends ContenedorMongo {
         descripcion: 1,
         foto: 1,
         stock: 1,
+        date:1,
         update: 1,
         _id: 0,
       }

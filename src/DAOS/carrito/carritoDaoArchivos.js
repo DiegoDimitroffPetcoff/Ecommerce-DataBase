@@ -11,20 +11,15 @@ class CarritoDaoFile extends ContenedorArchivo {
 
   saveCarrito(document) {
     let id = 1;
-
     try {
       let content = this.getContentFile();
       content.forEach((product) => {
         id = product.id + 1;
       });
-
       let date = moment().format("DD-MM-YYYY HH:mm:ss");
       date;
       let carrito = { id: id, date: date, products: [] };
       content.push(carrito);
-
-      console.log(content);
-
       this.saveInFile(content);
     } catch (error) {
       console.log(`No se pudo guardar: ${error}`);
