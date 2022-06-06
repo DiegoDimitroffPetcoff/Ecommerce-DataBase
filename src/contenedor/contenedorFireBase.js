@@ -35,7 +35,7 @@ class ContainerFireBase {
     return `Se acaba de agregar un producto nuevo con el ID Numero: ${id}`;
   }
 
-  async getAll() {
+  async getContentFile() {
     let result = await this.collection.get();
     result = result.docs.map((doc) => ({
       id: doc.id,

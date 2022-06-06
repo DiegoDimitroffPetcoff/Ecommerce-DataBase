@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs', {title:"Buscador particular por ID"})%>
+
+    <body>
+
+
+
+
+
+
+        <header>
+            <div class="container-gral">
+                <div class="container1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre de producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Foto</th>
+
+                        <th scope="col">Fecha de Creacion del producto</th>
+                        <th scope="col">Fecha de Actualizacion del producto</th>
+                        <th scope="col">stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>
+                        <%= Producto.id %>
+                    </td>
+                    <td>
+                        <%= Producto.title %>
+                    </td>
+                    <td>
+                        $ <%= Producto.price %>
+                    </td>
+                    <td>
+                        <%= Producto.descripcion %>
+                    </td>
+                    <td>
+                        <%= Producto.foto %>
+                    </td>
+                    <td>
+                        <%= Producto.date %>
+                    </td>
+                    <td>
+                        <%= Producto.update %>
+                    </td>
+                    <td>
+                        <%= Producto.stock %>
+                    </td>
+
+
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+        </header>
+        <%- include('./partials/footer.ejs') -%>
+    </body>
+
+</html>
