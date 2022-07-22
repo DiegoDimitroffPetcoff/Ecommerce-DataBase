@@ -17,12 +17,12 @@ app.use('/api/productos', productosRouter);
 app.use('/api/carritos', carritosRouter);
 
 
-  
+const PORT = process.env.PORT || 8080;
 
 
 
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log('Server on port 8080');
 })
 app.on("Error", (error) => console.log("error en servidor ${error}"));
