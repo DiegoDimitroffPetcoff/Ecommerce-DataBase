@@ -1,6 +1,6 @@
 const express = require("express");
 const { Router } = express;
-const productosRouter = Router();
+const productosR = Router();
 
 // // BASE DE DATOS EN ARCHIVO
 // const { ProductoDaoFile } = require("../DAOS/productos/productosDaoArchivos");
@@ -24,7 +24,7 @@ const producto = new ProductosDaoMongo();
 //   res.render("index", { titulo: "inicio EJS" });
 // });
 
-productosRouter.get("/", async (req, res) => {
+productosR.get("/", async (req, res) => {
   let getProductos = await producto.getContentFile();
 console.log(getProductos);
   res.render("index", { getProductos });
@@ -45,7 +45,7 @@ console.log(getProductos);
 // });
 
 // C- OBTENER PRODUCTO POR ID
-productosRouter.get("/:num", async (req, res) => {
+productosR.get("/:num", async (req, res) => {
   let resultado = await producto.getById(req.params.num);
 
   res.render("productosById", { Producto: resultado });
@@ -88,4 +88,4 @@ productosRouter.get("/:num", async (req, res) => {
 
 //   });
 
-module.exports = productosRouter;
+module.exports = productosR;
